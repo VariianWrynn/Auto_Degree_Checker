@@ -14,7 +14,7 @@ def dir_mker(degree_name):
     if not os.path.exists(dir_name):
         os.mkdir(dir_name)
 
-    dir_name = './wd/processed_studyplan_csvs/tabel_like_csvs'
+    dir_name = './wd/processed_studyplan_csvs/tabel_like_csvs_unfinished'
     
     if not os.path.exists(dir_name):
         os.mkdir(dir_name)
@@ -68,11 +68,9 @@ import re
 
 
 def extract_coords_from_pdf(pdf_path, search_string):
-
     rows = 1
     cols = 5
     arr = np.empty((rows, cols))
-    
     # open the pdf file
     with open(pdf_path, 'rb') as file:
         # create pdf resource manager
@@ -86,27 +84,26 @@ def extract_coords_from_pdf(pdf_path, search_string):
             layout = device.get_result()
             # iterate over all the text boxes in the layout
             for element in layout:
-
               if isinstance(element, LTTextBox):
-
                 if element.get_text().strip() == search_string:
 
-                    # print(f"{search_string} found in the PDF.")
-                    coords = element.bbox
-                    # print(coords)
-                    xmin, ymin, xmax, ymax = coords
+                  # print(f"{search_string} found in the PDF.")
+                  coords = element.bbox
+                  # print(coords)
+                  xmin, ymin, xmax, ymax = coords
 
-                    xmin += 232
-                    ymin += 20
-                    xmax += 270
-                    ymax += 26 
+                  xmin += 232
+                  ymin += 20
+                  xmax += 270
+                  ymax += 26 
 
-                    data = np.array([int(xmin), int(ymin), int(xmax), int(ymax), layout.pageid])
+                  data = np.array([int(xmin), int(ymin), int(xmax), int(ymax), layout.pageid])
 
-
+                  if (np.size(arr) == 1):
+                    arr = data
+                  else:
                     if data[-1] == arr[-1][-1]: continue
                     arr = np.append(arr, [data], axis = 0)
-                    break
     return arr
 
 
@@ -220,14 +217,46 @@ if __name__ == '__main__':
         dir_name = dir_mker(degree_name)
         produce_full_csv(pdf_file_path, dir_name)
         fliter_csv(dir_name)
+        print(pdf_file_path)
 
-        coords = np.empty((1,5))
-        
+        fp = open(pdf_file_path, 'rb')
 
-        coords = extract_coords_from_pdf(pdf_file_path, "Year 1")
-        coords = np.delete(coords, 0, axis=0)
+        # Create a PDF parser object associated with the file object.
+        parser = PDFParser(fp)
 
-        extract_text_at_coords(pdf_file_path, coords)
+        # Create a PDF document object that stores the document structure.
+        # Password for initialization as 2nd parameter
+        document = PDFDocument(parser)
+
+        # Check if the document allows text extraction. If not, abort.
+        if not document.is_extractable:
+            raise PDFTextExtractionNotAllowed
+
+        # Create a PDF resource manager object that stores shared resources.
+        rsrcmgr = PDFResourceManager()
+
+        # Create a PDF device object.
+        device = PDFDevice(rsrcmgr)
+
+        # BEGIN LAYOUT ANALYSIS
+        # Set parameters for analysis.
+        laparams = LAParams()
+
+        # Create a PDF page aggregator object.
+        device = PDFPageAggregator(rsrcmgr, laparams=laparams)
+
+        # Create a PDF interpreter object.
+        interpreter = PDFPageInterpreter(rsrcmgr, device)
 
 
+        # loop over all pages in the document
+        for page in PDFPage.create_pages(document):
+            print('NEXT PAGE')
+
+            # read the page into a layout object
+            interpreter.process_page(page)
+            layout = device.get_result()
+
+            # extract text from this object
+            parse_obj(layout._objs, layout.pageid)
 

@@ -223,9 +223,8 @@ if __name__ == '__main__':
 
         coords = np.empty((1,5))
         
-
+        
         coords = extract_coords_from_pdf(pdf_file_path, "Year 1")
-        coords = np.delete(coords, 0, axis=0)
 
         extract_text_at_coords(pdf_file_path, coords)
 

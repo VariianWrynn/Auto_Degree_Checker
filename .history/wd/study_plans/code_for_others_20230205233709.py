@@ -72,7 +72,6 @@ def extract_coords_from_pdf(pdf_path, search_string):
     rows = 1
     cols = 5
     arr = np.empty((rows, cols))
-    
     # open the pdf file
     with open(pdf_path, 'rb') as file:
         # create pdf resource manager
@@ -103,9 +102,11 @@ def extract_coords_from_pdf(pdf_path, search_string):
 
                     data = np.array([int(xmin), int(ymin), int(xmax), int(ymax), layout.pageid])
 
-
-                    if data[-1] == arr[-1][-1]: continue
-                    arr = np.append(arr, [data], axis = 0)
+                    if (np.size(arr) == 1):
+                        arr = data
+                    else:
+                        if data[-1] == arr[-1][-1]: continue
+                        arr = np.append(arr, [data], axis = 0)
                     break
     return arr
 
@@ -222,10 +223,8 @@ if __name__ == '__main__':
         fliter_csv(dir_name)
 
         coords = np.empty((1,5))
-        
 
         coords = extract_coords_from_pdf(pdf_file_path, "Year 1")
-        coords = np.delete(coords, 0, axis=0)
 
         extract_text_at_coords(pdf_file_path, coords)
 
