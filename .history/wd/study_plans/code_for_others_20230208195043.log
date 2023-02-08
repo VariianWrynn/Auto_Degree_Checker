@@ -1,0 +1,5 @@
+2023-02-08 19:50:44,830 - ERROR - Error while processing page {1} in file {BSc (Hons) (Physics (Geophysics) double major) Direct Entry Study Plan 2023 FINAL.pdf}
+Traceback (most recent call last):
+  File "d:\CS_Uni\auto degree checker\Auto_Degree_Checker\wd\study_plans\code_for_others.py", line 100, in extract_coords_from_pdf
+    xmin, ymin, xmax, ymax = coords
+ValueError: not enough values to unpack (expected 4, got 1)

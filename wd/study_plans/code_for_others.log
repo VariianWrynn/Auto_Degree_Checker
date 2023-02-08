@@ -1,0 +1,51 @@
+2023-02-08 21:26:55,733 - WARNING - Processing file {b-eng-chem-bsci-S1-2023_FINAL.pdf}
+2023-02-08 21:26:55,733 - WARNING - 
+
+2023-02-08 21:26:56,482 - INFO - Processing page-1
+2023-02-08 21:26:57,835 - INFO - Processing page-2
+2023-02-08 21:26:59,008 - INFO - Year 1 found with coords {[517 689 582 703]} at page {1}
+2023-02-08 21:26:59,008 - INFO - 
+
+2023-02-08 21:26:59,551 - WARNING - Processing file {b-eng-enviro-climate-all-majors-S1-2023_FINAL.pdf}
+2023-02-08 21:26:59,551 - WARNING - 
+
+2023-02-08 21:27:01,376 - INFO - Processing page-1
+2023-02-08 21:27:02,238 - INFO - Processing page-2
+2023-02-08 21:27:03,320 - INFO - Processing page-3
+2023-02-08 21:27:04,393 - INFO - Processing page-4
+2023-02-08 21:27:05,512 - INFO - Processing page-5
+2023-02-08 21:27:06,627 - INFO - Processing page-6
+2023-02-08 21:27:07,589 - INFO - Processing page-7
+2023-02-08 21:27:08,523 - INFO - Processing page-8
+2023-02-08 21:27:09,735 - INFO - Year 1 found with coords {[517 672 582 686]} at page {3}
+2023-02-08 21:27:09,735 - INFO - 
+
+2023-02-08 21:27:09,933 - INFO - Year 1 found with coords {[517 683 582 697]} at page {4}
+2023-02-08 21:27:09,933 - INFO - 
+
+2023-02-08 21:27:10,135 - INFO - Year 1 found with coords {[517 683 582 697]} at page {5}
+2023-02-08 21:27:10,135 - INFO - 
+
+2023-02-08 21:27:10,336 - INFO - Year 1 found with coords {[517 683 582 697]} at page {6}
+2023-02-08 21:27:10,337 - INFO - 
+
+2023-02-08 21:27:10,940 - INFO - Renamed file {Table1_page3.csv}, to {No Major.csv} in directory {./wd/processed_studyplan_csvs/tabel_like_csvs/b-eng-enviro-climate-all-majors-S1-2023_FINAL}
+2023-02-08 21:27:10,940 - INFO - 
+
+2023-02-08 21:27:11,124 - INFO - Renamed file {Table2_page4.csv}, to {Climate Solutions Major.csv} in directory {./wd/processed_studyplan_csvs/tabel_like_csvs/b-eng-enviro-climate-all-majors-S1-2023_FINAL}
+2023-02-08 21:27:11,125 - INFO - 
+
+2023-02-08 21:27:11,308 - INFO - Renamed file {Table3_page5.csv}, to {Renewable Energy Major.csv} in directory {./wd/processed_studyplan_csvs/tabel_like_csvs/b-eng-enviro-climate-all-majors-S1-2023_FINAL}
+2023-02-08 21:27:11,308 - INFO - 
+
+2023-02-08 21:27:11,496 - INFO - Renamed file {Table4_page6.csv}, to {Smart Technologies Major.csv} in directory {./wd/processed_studyplan_csvs/tabel_like_csvs/b-eng-enviro-climate-all-majors-S1-2023_FINAL}
+2023-02-08 21:27:11,496 - INFO - 
+
+2023-02-08 21:27:11,499 - WARNING - Processing file {BSc (Hons) (Physics (Geophysics) double major) Direct Entry Study Plan 2023 FINAL.pdf}
+2023-02-08 21:27:11,499 - WARNING - 
+
+2023-02-08 21:27:12,201 - INFO - Processing page-1
+2023-02-08 21:27:13,272 - INFO - Processing page-2
+2023-02-08 21:27:14,327 - INFO - Year 1 found with coords {[517 696 582 710]} at page {1}
+2023-02-08 21:27:14,327 - INFO - 
+
